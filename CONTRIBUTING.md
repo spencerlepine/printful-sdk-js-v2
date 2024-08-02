@@ -9,6 +9,7 @@ Welcome! We're thrilled that you are interested in contributing to our project. 
 1. Git
 1. Node: any 18.x version starting with v16.0.0 or greater
 1. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/) (`npm install yarn -g`)
+1. **Java 17 OpenJDK:** Ensure you have OpenJDK 17 installed and added to your system's PATH.
 
 ### Installation
 
@@ -18,12 +19,33 @@ cd printful-sdk-js-v2
 yarn install
 ```
 
-### Testing
+### API Model Updates
 
-Add/update tests in the `tests/` directory, ensuring to follow unit test coding conventions
+The REST API schema is defined in `openapi.json`. Edit that specification to reflect the endpoints/responses of the production Printful API. This is used to auto-generate the
+`src/` code.
+
+```json
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "2.0.0",
+    "title": "API Documentation v2 | Printful",
+    "description": "# About ....",
+    "contact": {
+      "name": "Printful developer support",
+      "url": "https://www.printful.com/docs/support",
+      "email": "devsupport@printful.com"
+    }
+  }
+}
+```
+
+### Re-generate the SDK
+
+After making edits to `openapi.json` schema, validate and re-generate the `src/` TypeScript files.
 
 ```sh
-yarn test
+$ yarn run release
 ```
 
 ## How Can I Contribute?
@@ -49,3 +71,13 @@ Before submitting a bug report, please check the existing issues to see if the p
 ### Code of Conduct
 
 Help us keep this project open and inclusive. Please read and follow our [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+## Appendix
+
+This appendix provides resources for understanding the generation of the SDK code.
+
+- **SDK Generator:**
+  - Website: https://openapi-generator.tech/docs/generators/typescript-node
+  - GitHub Repository: https://github.com/OpenAPITools/openapi-generator
+- **Source API:**
+  - Documentation: https://developers.printful.com/docs/v2-beta (as of Aug 2024)

@@ -3,7 +3,7 @@
     "target": "ES2017",
     "module": "ESNext",
     "moduleResolution": "node",
-    "outDir": "./dist",
+    "outDir": "examples/javascript/dist",
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
@@ -11,9 +11,14 @@
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "declarationMap": false,
-    "declarationDir": "./dist/types",
-    "importHelpers": true
+    "declarationDir": "examples/javascript/dist/types",
+    "importHelpers": true,
+    "noUnusedLocals": false, // fix for auto-generated code
+    "noUnusedParameters": false,
+    "noImplicitAny": false // risky but needed for v1
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "./src" // Or the directory containing your generated code
+  ],
+  "exclude": ["node_modules", "examples/javascript/dist"]
 }

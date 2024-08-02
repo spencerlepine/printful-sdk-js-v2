@@ -1,0 +1,10 @@
+{
+  "generatorName": "typescript-node",
+  "inputSpec": "openapi.json",
+  "outputDir": "src",
+  "validateSpec": false,
+  "configOptions": {
+    "supportsFetch": true,
+    "withInterfaces": true
+  }
+}
