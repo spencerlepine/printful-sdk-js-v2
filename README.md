@@ -1,19 +1,19 @@
 # Printful SDK for TypeScript (Node.js)
 
 [![NPM Version](https://img.shields.io/npm/v/printful-sdk-js-v2)](https://www.npmjs.com/package/printful-sdk-js-v2)
-![MIT license](https://img.shields.io/badge/License-MIT-blue.svg) ![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg)
+![MIT license](https://img.shields.io/badge/License-MIT-blue.svg) ![Project Status: WIP](https://www.repostatus.org/badges/latest/wip.svg)
 
-> 📢 ![Project Status: WIP](https://www.repostatus.org/badges/latest/wip.svg) Printful API 2.0.0 is in beta [[documentation](https://developers.printful.com/docs/v2-beta/)]. This
-> SDK is in development until the official 2.0.0 release (by 2025)
+> 📢 Printful API 2.0.0 is still in beta ([documentation](https://developers.printful.com/docs/v2-beta/)). This SDK will be in development until the official 2.0.0 release
+> (by 2025)
 
 Printful SDK for Node.js. A basic TypeScript wrapper for the Printful REST API (v2). Guidelines and source endpoints can be found here:
-[developers.printful.com/](https://developers.printful.com).
+[developers.printful.com](https://developers.printful.com).
 
 ## Getting started
 
 ### Prerequisites
 
-1. Printful API Token ([documentation](https://developers.printful.com))
+- Printful API Token ([documentation](https://developers.printful.com))
 
 ### Installation
 
@@ -34,7 +34,7 @@ pnpm add printful-sdk-js-v2
 
 ```js
 import { CountriesV2Api, Country } from 'printful-sdk-js-v2';
-// const { CountriesV2Api, Country } = require('printful-sdk-js-v2'); // CommonJS
+// const { CountriesV2Api } = require('printful-sdk-js-v2'); // CommonJS
 
 const apiKey = process.env.PRINTFUL_API_TOKEN || 'YOUR_PRINTFUL_API_TOKEN';
 
@@ -50,17 +50,13 @@ const countriesApi = new CountriesV2Api({ accessToken: apiKey });
 })();
 ```
 
-## API
+## Documentation
 
-For the full documentation, please see [spencerlepine.github.io/printful-sdk-js-v2](https://spencerlepine.github.io/printful-sdk-js-v2/)
-
-## Examples
-
-To get started quickly, check out the JavaScript/TypeScript example code in the [`examples`](./examples) folder.
+View the site here: [spencerlepine.github.io/printful-sdk-js-v2](https://spencerlepine.github.io/printful-sdk-js-v2/variables/APIS.html)
 
 ## Contributing
 
-We welcome contributions from the community! If you're interested in contributing to this project, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) file to get started.
+Pull requests welcome! If you're interested in contributing to this project, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) file to get started.
 
 ## Disclaimer
 

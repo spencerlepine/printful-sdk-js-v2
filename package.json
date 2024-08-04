@@ -43,7 +43,7 @@
   "scripts": {
     "test": "echo 'No unit tests found.' && exit 0",
     "bundle": "rollup -c",
-    "generate-sdk": "openapi-generator-cli generate -c ./config/sdk-config.json",
+    "generate-sdk": "openapi-generator-cli generate -c sdk-config.json",
     "generate-docs": "typedoc src/api.ts",
     "release": "npm run generate-sdk && npm run bundle && npm run generate-docs"
   },

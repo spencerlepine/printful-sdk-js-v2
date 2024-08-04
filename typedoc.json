@@ -1,0 +1,9 @@
+{
+  "name": "printful-sdk-js-v2",
+  "githubPages": true,
+  "hideGenerator": true,
+  "entryPoints": ["./src/api.ts"],
+  "out": "./docs",
+  "searchInDocuments": true,
+  "customFooterHtml": "<footer><p><a href=\"https://github.com/spencerlepine/printful-sdk-js-v2\">GitHub Repository</a> | <a href=\"https://www.npmjs.com/package/printful-sdk-js-v2\">NPM Package</a> | <a href=\"https://github.com/spencerlepine/printful-sdk-js-v2/tree/main/examples\">Sample Code</a></p></br><p>(NOTICE) This SDK is a third-party library and is not officially endorsed or maintained by Printful.</p></footer>"
+}
