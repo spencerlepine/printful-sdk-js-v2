@@ -53,6 +53,10 @@ const countriesApi = new CountriesV2Api({ accessToken: apiKey });
 
 For the full documentation, please see [spencerlepine.github.io/printful-sdk-js-v2](https://spencerlepine.github.io/printful-sdk-js-v2/)
 
+## Examples
+
+To get started quickly, check out the JavaScript/TypeScript example code in the [`examples`](./examples) folder.
+
 ## Contributing
 
 We welcome contributions from the community! If you're interested in contributing to this project, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) file to get started.
