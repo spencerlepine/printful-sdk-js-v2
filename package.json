@@ -45,7 +45,8 @@
     "bundle": "rollup -c",
     "generate-sdk": "openapi-generator-cli generate -c ./config/sdk-config.json",
     "generate-docs": "typedoc src/api.ts",
-    "release": "npm run generate-sdk && npm run bundle && npm run generate-docs"
+    "release": "npm run generate-sdk && npm run bundle && npm run generate-docs",
+    "start": "npm run generate-docs && mkdir ./docs/static && docusaurus start"
   },
   "husky": {
     "hooks": {
@@ -58,6 +59,9 @@
     ]
   },
   "devDependencies": {
+    "@docusaurus/core": "^3.4.0",
+    "@docusaurus/plugin-content-docs": "^3.4.0",
+    "@docusaurus/preset-classic": "^3.4.0",
     "@openapitools/openapi-generator-cli": "^2.13.4",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-json": "^6.1.0",
@@ -66,6 +70,8 @@
     "husky": "4.3.8",
     "lint-staged": "10.5.4",
     "prettier": "2.8.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "request": "^2.88.2",
     "rollup": "^2.79.1",
     "rollup-plugin-commonjs": "^10.1.0",
