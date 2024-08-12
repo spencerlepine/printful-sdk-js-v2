@@ -1,0 +1,9 @@
+{
+  "name": "javascript-examples",
+  "scripts": {
+    "start": "node getCountries.js"
+  },
+  "dependencies": {
+    "printful-sdk-js-v2": "^2.0.1-beta"
+  }
+}
