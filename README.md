@@ -30,29 +30,28 @@ pnpm add printful-sdk-js-v2
 
 ## Usage
 
-> ⚠️ For security purposes, this is intended only for server-side use only
+> For security purposes, this is intended only for server-side use only
 
-```js
-import { CountriesV2Api, Country } from 'printful-sdk-js-v2';
-// const { CountriesV2Api } = require('printful-sdk-js-v2'); // CommonJS
+```ts
+// getCountries.ts
 
-const apiKey = process.env.PRINTFUL_API_TOKEN || 'YOUR_PRINTFUL_API_TOKEN';
+import { PrintfulClient, Country } from 'printful-sdk-js-v2';
+// const { PrintfulClient } = require('printful-sdk-js-v2'); // CommonJS
 
-const countriesApi = new CountriesV2Api({ accessToken: apiKey });
+const printful = new PrintfulClient({
+  TOKEN: '<PRINTFUL_API_TOKEN>',
+});
 
 (async () => {
-  try {
-    const countries: Country[] = await countriesApi.getCountries();
-    console.log('List of countries:', countries);
-  } catch (error) {
-    console.error('Error fetching countries:', error);
-  }
+  const response = await printful.countriesV2.getCountries();
+  const countries: Country[] = response.data;
+  console.log(countries);
 })();
 ```
 
 ## Documentation
 
-View the site here: [spencerlepine.github.io/printful-sdk-js-v2](https://spencerlepine.github.io/printful-sdk-js-v2/variables/APIS.html)
+View the site here: [spencerlepine.github.io/printful-sdk-js-v2](https://spencerlepine.github.io/printful-sdk-js-v2/classes/PrintfulClient.html)
 
 ## Contributing
 

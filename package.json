@@ -1,6 +1,6 @@
 {
   "name": "printful-sdk-js-v2",
-  "version": "2.0.0-beta",
+  "version": "2.0.1-beta",
   "description": "Printful SDK for Node.js / TypeScript. A wrapper for the Printful REST API (v2)",
   "author": "Spencer Lepine <spencer.sayhello@gmail.com>",
   "license": "MIT",
@@ -27,44 +27,37 @@
   ],
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "types": "dist/index.d.mts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/index.cjs.js",
     "dist/index.esm.js",
-    "dist/index.d.mts"
+    "dist/index.d.ts"
   ],
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
       "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.mts"
+      "types": "./dist/index.d.ts"
     }
+  },
+  "engines": {
+    "node": ">= 18"
   },
   "scripts": {
     "test": "echo 'No unit tests found.' && exit 0",
     "bundle": "rollup -c",
-    "generate-sdk": "openapi-generator-cli generate -c sdk-config.json",
-    "generate-docs": "typedoc src/api.ts",
-    "release": "npm run generate-sdk && npm run bundle && npm run generate-docs"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm run release"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write"
-    ]
+    "generate-sdk": "openapi --input ./openapi.json --output ./src --name PrintfulClient",
+    "generate-docs": "typedoc src/index.ts",
+    "release": "npm run bundle && npm run generate-docs"
   },
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^2.13.4",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/node": "^22.1.0",
     "husky": "4.3.8",
     "lint-staged": "10.5.4",
+    "openapi-typescript-codegen": "^0.29.0",
     "prettier": "2.8.8",
     "request": "^2.88.2",
     "rollup": "^2.79.1",
@@ -77,7 +70,40 @@
     "typedoc": "^0.26.5",
     "typescript": "^5.5.4"
   },
-  "engines": {
-    "node": ">= 18"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run release"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "no-console": "off",
+      "no-unused-vars": "off"
+    }
+  },
+  "prettier": {
+    "printWidth": 180,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "semi": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "proseWrap": "always",
+    "requirePragma": false,
+    "insertPragma": false,
+    "endOfLine": "lf",
+    "jsxBracketSameLine": true
   }
 }
