@@ -28,7 +28,7 @@ yarn add printful-sdk-js-v2
 pnpm add printful-sdk-js-v2
 ```
 
-## Usage
+### Usage
 
 > For security purposes, this is intended only for server-side use only
 
@@ -48,6 +48,11 @@ const printful = new PrintfulClient({
   console.log(countries);
 })();
 ```
+
+## Example Code [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?style=flat-square&logo=codesandbox)](https://codesandbox.io/p/devbox/printful-sdk-js-v2-example-pzwn4m)
+
+- **JavaScript:** [examples/javascript](./examples/javascript)
+- **TypeScript:** [examples/typescript](./examples/typescript)
 
 ## Documentation
 
