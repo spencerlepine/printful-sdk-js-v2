@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/" # Location of your package.json
+    schedule:
+      interval: "monthly" # "daily", "weekly", or "monthly"
+    ignore:
+      - dependency-name: "typedoc"
+      - dependency-name: "prettier"
+      - dependency-name: "lint-staged"
+      - dependency-name: "husky"
