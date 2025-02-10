@@ -48,8 +48,19 @@ const printful = new PrintfulClient({
   console.log(countries);
 })();
 ```
+##  ☁ Open in the Cloud 
+[![Open in VS Code](https://img.shields.io/badge/Open%20in-VS%20Code-blue?logo=visualstudiocode)](https://vscode.dev/github/spencerlepine/printful-sdk-js-v2)
+[![Open in Glitch](https://img.shields.io/badge/Open%20in-Glitch-blue?logo=glitch)](https://glitch.com/edit/#!/import/github/spencerlepine/printful-sdk-js-v2)
 
-## Example Code [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?style=flat-square&logo=codesandbox)](https://codesandbox.io/p/devbox/printful-sdk-js-v2-example-pzwn4m)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/spencerlepine/printful-sdk-js-v2)
+[![Open in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/spencerlepine/printful-sdk-js-v2)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/spencerlepine/printful-sdk-js-v2)
+[![Open in Repl.it](https://replit.com/badge/github/withastro/astro)](https://replit.com/github/spencerlepine/printful-sdk-js-v2)
+
+[![Open in Codeanywhere](https://codeanywhere.com/img/open-in-codeanywhere-btn.svg)](https://app.codeanywhere.com/#https://github.com/spencerlepine/printful-sdk-js-v2)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/spencerlepine/printful-sdk-js-v2)
+
+## Example Code 
 
 - **JavaScript:** [examples/javascript](./examples/javascript)
 - **TypeScript:** [examples/typescript](./examples/typescript)
