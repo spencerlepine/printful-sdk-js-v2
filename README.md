@@ -2,7 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/printful-sdk-js-v2)](https://www.npmjs.com/package/printful-sdk-js-v2)
 ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg) ![TypeScript](https://img.shields.io/badge/TypeScript-Ready-green.svg)
-![package size](https://img.shields.io/bundlephobia/minzip/printful-sdk-js-v2)
+![package size](https://img.shields.io/bundlephobia/minzip/printful-sdk-js-v2) [![Socket.dev Vulnerabilities](https://img.shields.io/badge/Security-Socket.dev%20Scan-brightgreen?logo=socket&logoColor=white)](https://socket.dev/npm/package/printful-sdk-js-v2)
 
 A lightweight SDK for interacting with the Printful RESTful API, written in TypeScript. Designed for server-side use in Node.js environments.
 
