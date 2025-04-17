@@ -1,4 +1,4 @@
-name: CI
+ame: CI
 
 on:
   push:
@@ -15,18 +15,21 @@ permissions: read-all
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NODE_VERSION: '18.x'  # See: https://nodejs.org/en/about/previous-releases
-      NODE_ENV: 'test'
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Read Node version for CI from package.json
+        id: node-version
+        run: |
+          NODE_VERSION=$(jq -r '.ci.node' package.json)
+          echo "node_version=$NODE_VERSION" >> $GITHUB_OUTPUT
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: ${{ steps.node-version.outputs.node_version }}
 
       - name: Cache Yarn packages
         uses: actions/cache@v4
@@ -40,6 +43,8 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Test project
+        env:
+          NODE_ENV: 'test'
         run: yarn test
 
       - name: Build project
