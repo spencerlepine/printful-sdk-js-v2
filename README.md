@@ -4,12 +4,16 @@
 ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg) ![TypeScript](https://img.shields.io/badge/TypeScript-Ready-green.svg)
 ![package size](https://img.shields.io/bundlephobia/minzip/printful-sdk-js-v2)
 
-> 📢 **Notice:** Printful API v2 is currently in beta, and this SDK is still under active development. Breaking changes may occur until the first stable release. If you run into
-> any problems, please feel free to raise an issue!
-
 A lightweight SDK for interacting with the Printful RESTful API, written in TypeScript. Designed for server-side use in Node.js environments.
 
 🔗 Official API docs: [developers.printful.com](https://developers.printful.com)
+
+> 📢 Notice: Printful API v2 is currently in beta. While an official release date and roadmap have not yet been announced, most v2 endpoints are already available. This SDK is actively being developed, and breaking changes may occur until the first stable release. If you encounter any issues, feel free to open an issue!
+
+## Announcements
+
+- **2024-11-31**: Printful and Printify announced a merge, no API changes planned, both platforms will operate separately "for the foreseeable future"
+- **2024-08-05**: initial pre-release: [`v2.0.0-beta`](https://github.com/spencerlepine/printful-sdk-js-v2/releases/tag/v2.0.0-beta)
 
 ## Documentation
 
@@ -65,14 +69,14 @@ const printful = new PrintfulClient({
 
 ## Example Code
 
-- **JavaScript Examples**
-  - [example/javascript](https://github.com/spencerlepine/printful-sdk-js-v2/tree/main/examples/typescript)
-- **TypeScript Examples**
-  - [example/typescript](https://github.com/spencerlepine/printful-sdk-js-v2/tree/main/examples/javascript)
+These samples are provided as-is and are not guaranteed to be production-ready. They serve as a starting point for your own implementation.
+
+- **JavaScript**: [examples/javascript](https://github.com/spencerlepine/printful-sdk-js-v2/tree/main/examples/typescript)
+- **TypeScript**: [examples/typescript](https://github.com/spencerlepine/printful-sdk-js-v2/tree/main/examples/javascript)
 
 ## Contributing
 
-Pull requests welcome! If you're interested in contributing to this project, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) file to get started.
+Pull requests welcome! If you need assistance contributing to this project, please review the [CONTRIBUTING.md](./CONTRIBUTING.md) file to get started.
 
 ## Disclaimer
 
