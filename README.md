@@ -13,8 +13,8 @@ A lightweight SDK for interacting with the Printful RESTful API, written in Type
 ## Announcements
 
 - **2024-11-31**: Printful and Printify announced a merge, no API changes planned, both platforms will operate separately "for the foreseeable future"
-- **2024-08-05**: initial pre-release: [`v2.0.0-beta`](https://github.com/spencerlepine/printful-sdk-js-v2/releases/tag/v2.0.0-beta)
-
+- **2024-08-05**: initial SDK pre-release: [`v2.0.0-beta`](https://github.com/spencerlepine/printful-sdk-js-v2/releases/tag/v2.0.0-beta)
+- **2023-09-14**: Printful announces API V2 beta release
 ## Documentation
 
 View the site here: [spencerlepine.github.io/printful-sdk-js-v2](https://spencerlepine.github.io/printful-sdk-js-v2/classes/PrintfulClient.html)
