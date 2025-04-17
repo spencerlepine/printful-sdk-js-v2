@@ -45,7 +45,7 @@
   },
   "ci": {
     "node": "18.x"
-  }
+  },
   "scripts": {
     "test": "jest",
     "bundle": "rollup -c",
