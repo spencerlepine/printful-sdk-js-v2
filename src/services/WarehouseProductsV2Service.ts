@@ -14,7 +14,7 @@ export class WarehouseProductsV2Service {
      * @param filterName Wildcard match of the name value. Note that the value will be matched if the name property contains the value anywhere in the string.
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @param limit The number of results to return per page.
      * @param offset The number of results to not include in the response starting from the beginning of the list.
@@ -178,7 +178,7 @@ export class WarehouseProductsV2Service {
      * @param warehouseProductId Warehouse Product ID.
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError

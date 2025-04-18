@@ -14,7 +14,7 @@ export class StoresV2Service {
      * @param storeId Store ID
      * @param xPfStoreId Use this to specify which store you want to use.
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
@@ -43,7 +43,7 @@ export class StoresV2Service {
      * Retrieves a list of all stores available to the token. If the token is a store level token it will return only the one store, if it is an account level token it will return all stores available to the account.
      * @param xPfStoreId Use this to specify which store you want to use.
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
@@ -97,7 +97,7 @@ export class StoresV2Service {
      * The response structure for the specific reports is documented in the response schema (`result.store_statistics.[reportName]`).
      *
      * @param storeId Use this to specify which store you want to use.
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @param dateFrom The beginning of the period to get the statistics from (date in `Y-m-d` format).
      * @param dateTo The end of the period to get the statistics from (date in `Y-m-d` format).

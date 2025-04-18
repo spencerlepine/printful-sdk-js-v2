@@ -12,7 +12,7 @@ export class MockupGeneratorV2Service {
      * Create Mockup Generator tasks
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @param requestBody This action schedules asynchronous mockup generation tasks. In the response of this request `id` will be returned which can be used to retrieve the result of the tasks _[Retrieve mockup generator tasks](#operation/getMockupGeneratorTasks)_. In addition, the webhook event will be sent informing about the task completion, if the correct webhook has been subscribed to _[Mockup generator task finished event](#operation/mockupTaskFinished)_. You can subscribe to webhook events by using _[Set up event configuration](#operation/createWebhookEventConfiguration)_.
      * @returns any OK

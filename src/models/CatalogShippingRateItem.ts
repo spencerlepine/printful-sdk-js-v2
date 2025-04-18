@@ -2,6 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { PlacementList } from './PlacementList';
+import type { ProductOptions } from './ProductOptions';
 export type CatalogShippingRateItem = {
     /**
      * Catalog source
@@ -15,6 +17,8 @@ export type CatalogShippingRateItem = {
      * ID of catalog variant
      */
     catalog_variant_id: number;
+    placements?: PlacementList;
+    product_options?: ProductOptions;
 };
 export namespace CatalogShippingRateItem {
     /**

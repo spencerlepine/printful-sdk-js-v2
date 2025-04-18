@@ -16,6 +16,6 @@ export type BaseMockupProduct = {
      * Available mockup styles for catalog product can be found under _[Retrieve catalog product mockup styles](#operation/retrieveMockupStylesByProductId)_.
      *
      */
-    mockup_style_ids: Array<number>;
+    mockup_style_ids?: Array<number>;
 };
 

@@ -11,7 +11,7 @@ export class CatalogV2Service {
      * Retrieve a list of catalog products
      * This endpoint retrieves a list of the products available in Printful's catalog. The list is paginated and can be filtered using various filters. The information returned includes details on how each product can be designed, such as the available placements, techniques, and additional options.
      * For a visual representation of the design data, please see the following diagram:
-     * [<img src="images/catalog/design_data_diagram.png#center" width="700"/>](images/catalog/design_data_diagram.png)
+     * [<img src="images/catalog/design_data_diagram.png?center" width="700" alt="Design data diagram"/>](images/catalog/design_data_diagram.png)
      *
      * @param categoryIds One or more category IDs to return only products in those categories. The IDs can be found in the response of the
      * operation _[Get Categories](#operation/getCategories)_.
@@ -24,7 +24,7 @@ export class CatalogV2Service {
      *
      * This can be used to return results after the initial 100. For example, sending offset 100
      *
-     * @param placements One or more identifiers of a placement to return only products with variants that have that placement. The complete list of placements can be found [here](https://developers.printful.com/docs/#section/Placements).
+     * @param placements One or more identifiers of a placement to return only products with variants that have that placement. The complete list of placements can be found [here](https://developers.printful.com/docs/#tag/Common/Placements).
      * @param sellingRegionName Only returns the products that can be sold in the specified region. If is set to 'all' returns each region availability for specified product.
      * @param sortDirection This parameter only is used if sort_type is also present and it changes the order of the returned products.
      * The exact meaning varies depending on the value of `sort_type`:
@@ -44,6 +44,8 @@ export class CatalogV2Service {
      * @param sortType The sorting strategy to use when sorting the result. When it's not present, no specific order is guaranteed.
      *
      * @param techniques One or more techniques to return only products with variants that can be printed using one of the techniques.
+     * @param destinationCountry The ISO 3166-1 alpha-2 country code for the destination country. Only products shippable to the specified country will be returned.
+     *
      * @param xPfLanguage Use this to specify which locale you would like to use in the responses, for some endpoints this can affect translations.
      *
      * @returns any OK
@@ -56,10 +58,11 @@ export class CatalogV2Service {
         _new: boolean = false,
         offset?: number,
         placements?: Array<string>,
-        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'english_speaking_regions' | 'all' = 'worldwide',
+        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'all' = 'worldwide',
         sortDirection: 'ascending' | 'descending' = 'descending',
         sortType?: 'new' | 'rating' | 'price' | 'bestseller',
         techniques?: Array<TechniqueEnum>,
+        destinationCountry?: string,
         xPfLanguage?: string,
     ): CancelablePromise<any> {
         return this.httpRequest.request({
@@ -79,6 +82,7 @@ export class CatalogV2Service {
                 'sort_direction': sortDirection,
                 'sort_type': sortType,
                 'techniques': techniques,
+                'destination_country': destinationCountry,
             },
             errors: {
                 401: `Unauthorized`,
@@ -98,7 +102,7 @@ export class CatalogV2Service {
      */
     public getProductById(
         id: number,
-        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'english_speaking_regions' | 'all' = 'worldwide',
+        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'all' = 'worldwide',
         xPfLanguage?: string,
     ): CancelablePromise<any> {
         return this.httpRequest.request({
@@ -226,7 +230,7 @@ export class CatalogV2Service {
      */
     public getCategoriesByProductId(
         id: number,
-        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'english_speaking_regions' | 'all' = 'worldwide',
+        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'all' = 'worldwide',
     ): CancelablePromise<any> {
         return this.httpRequest.request({
             method: 'GET',
@@ -409,6 +413,33 @@ export class CatalogV2Service {
         });
     }
     /**
+     * Retrieve the shipping countries for a Product
+     * Retrieve the list of countries the Catalog Product can be shipped to.
+     * @param id Product ID.
+     * @param xPfLanguage Use this to specify which locale you would like to use in the responses, for some endpoints this can affect translations.
+     *
+     * @returns any OK
+     * @throws ApiError
+     */
+    public getProductShippingCountriesById(
+        id: number,
+        xPfLanguage?: string,
+    ): CancelablePromise<any> {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/v2/catalog-products/{id}/shipping-countries',
+            path: {
+                'id': id,
+            },
+            headers: {
+                'X-PF-Language': xPfLanguage,
+            },
+            errors: {
+                401: `Unauthorized`,
+            },
+        });
+    }
+    /**
      * Retrieve blank images for a catalog variant
      * Returns images for a specified Variant.
      * @param id Variant ID
@@ -454,7 +485,7 @@ export class CatalogV2Service {
      * Returns information about available mockup styles for specified catalog product.
      *
      * @param id Product ID.
-     * @param placements One or more placement idenitifiers used to filter in mockup styles that match a given placement. The complete list of placements can be found [here](https://developers.printful.com/docs/#section/Placements).
+     * @param placements One or more placement idenitifiers used to filter in mockup styles that match a given placement. The complete list of placements can be found [here](https://developers.printful.com/docs/#tag/Common/Placements).
      * @param sellingRegionName Only returns the products that can be sold in the specified region. If is set to 'all' returns each region availability for specified product.
      * @param offset Result set offset
      * @param limit Number of items per page (max 100)
@@ -466,7 +497,7 @@ export class CatalogV2Service {
     public retrieveMockupStylesByProductId(
         id: number,
         placements?: Array<string>,
-        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'english_speaking_regions' | 'all' = 'worldwide',
+        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'all' = 'worldwide',
         offset?: number,
         limit?: number,
         xPfLanguage?: string,
@@ -499,7 +530,7 @@ export class CatalogV2Service {
      * ![Mockup template](images/mockups/mockup_template.png)
      *
      * @param id Product ID.
-     * @param placements One or more identifiers of a placement to return only products with variants that have that placement. The complete list of placements can be found [here](https://developers.printful.com/docs/#section/Placements).
+     * @param placements One or more identifiers of a placement to return only products with variants that have that placement. The complete list of placements can be found [here](https://developers.printful.com/docs/#tag/Common/Placements).
      * @param sellingRegionName Only returns the products that can be sold in the specified region. If is set to 'all' returns each region availability for specified product.
      * @param limit The number of results to return per page.
      * @param offset The number of results to not include in the response starting from the beginning of the list.
@@ -514,7 +545,7 @@ export class CatalogV2Service {
     public getMockupTemplatesByProductId(
         id: number,
         placements?: Array<string>,
-        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'english_speaking_regions' | 'all' = 'worldwide',
+        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'all' = 'worldwide',
         limit: number = 20,
         offset?: number,
         xPfLanguage?: string,
@@ -559,7 +590,7 @@ export class CatalogV2Service {
     public getProductStockAvailabilityById(
         id: number,
         techniques?: Array<TechniqueEnum>,
-        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'english_speaking_regions' | 'all' = 'worldwide',
+        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'all' = 'worldwide',
         limit: number = 20,
         offset?: number,
         xPfLanguage?: string,
@@ -602,7 +633,7 @@ export class CatalogV2Service {
     public getVariantStockAvailabilityById(
         id: number,
         techniques?: Array<TechniqueEnum>,
-        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'english_speaking_regions' | 'all' = 'worldwide',
+        sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'all' = 'worldwide',
         xPfLanguage?: string,
     ): CancelablePromise<any> {
         return this.httpRequest.request({

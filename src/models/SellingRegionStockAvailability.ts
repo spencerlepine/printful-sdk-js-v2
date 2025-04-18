@@ -46,7 +46,6 @@ export namespace SellingRegionStockAvailability {
         BRAZIL = 'brazil',
         SOUTHEAST_ASIA = 'southeast_asia',
         REPUBLIC_OF_KOREA = 'republic_of_korea',
-        ENGLISH_SPEAKING_REGIONS = 'english_speaking_regions',
     }
     /**
      * Availability status:

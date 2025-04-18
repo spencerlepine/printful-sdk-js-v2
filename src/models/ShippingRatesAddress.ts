@@ -9,7 +9,7 @@ export type ShippingRatesAddress = {
     /**
      * Address line 1
      */
-    address1: string;
+    address1?: string;
     /**
      * Address line 2
      */
@@ -17,9 +17,9 @@ export type ShippingRatesAddress = {
     /**
      * City
      */
-    city: string;
+    city?: string;
     /**
-     * State code this property is required for certain countries like the USA, Australia and Japan
+     * State code this property is required for certain countries like the United States, Canada and Australia
      */
     state_code?: string | null;
     /**

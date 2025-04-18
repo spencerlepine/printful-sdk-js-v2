@@ -6,6 +6,7 @@ import type { Address } from '../models/Address';
 import type { CatalogItem } from '../models/CatalogItem';
 import type { Customization } from '../models/Customization';
 import type { EstimationAddress } from '../models/EstimationAddress';
+import type { ProductTemplateItem } from '../models/ProductTemplateItem';
 import type { RetailCosts_2 } from '../models/RetailCosts_2';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
@@ -21,7 +22,7 @@ export class OrdersV2Service {
      *
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
@@ -51,7 +52,7 @@ export class OrdersV2Service {
      * This endpoint allows the creation of a new order in which the default status will be `draft`.
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @param requestBody POST request body
      * @returns any OK
@@ -75,7 +76,7 @@ export class OrdersV2Service {
             /**
              * Array of order items
              */
-            order_items: Array<CatalogItem>;
+            order_items: Array<(CatalogItem | ProductTemplateItem)>;
             customization?: Customization;
             retail_costs?: RetailCosts_2;
         },
@@ -99,7 +100,7 @@ export class OrdersV2Service {
      * @param orderId Order ID (integer) or Order External ID (string prepended with "@" symbol)
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
@@ -140,7 +141,7 @@ export class OrdersV2Service {
      * @param orderId Order ID (integer) or Order External ID (string prepended with "@" symbol)
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns void
      * @throws ApiError
@@ -171,7 +172,7 @@ export class OrdersV2Service {
      * @param orderId Order ID (integer) or Order External ID (string prepended with "@" symbol)
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @param requestBody PATCH request body
      * @returns any OK
@@ -196,7 +197,7 @@ export class OrdersV2Service {
             /**
              * Array of order items
              */
-            order_items?: Array<CatalogItem>;
+            order_items?: Array<(CatalogItem | ProductTemplateItem)>;
             customization?: Customization;
             /**
              * Retail costs
@@ -243,7 +244,7 @@ export class OrdersV2Service {
      * @param orderId Order ID (integer) or Order External ID (string prepended with "@" symbol)
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
@@ -278,7 +279,7 @@ export class OrdersV2Service {
      *
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
@@ -319,14 +320,14 @@ export class OrdersV2Service {
      * @param requestBody POST request body
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
      */
     public createItemByOrderId(
         orderId: (number | string),
-        requestBody: CatalogItem,
+        requestBody: (CatalogItem | ProductTemplateItem),
         xPfStoreId?: string,
     ): CancelablePromise<any> {
         return this.httpRequest.request({
@@ -355,7 +356,7 @@ export class OrdersV2Service {
      * @param orderId Order ID (integer) or Order External ID (string prepended with "@" symbol)
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
@@ -388,7 +389,7 @@ export class OrdersV2Service {
      * @param requestBody PATCH request body
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
@@ -396,7 +397,7 @@ export class OrdersV2Service {
     public updateItem(
         orderItemId: (number | string),
         orderId: (number | string),
-        requestBody: CatalogItem,
+        requestBody: (CatalogItem | ProductTemplateItem),
         xPfStoreId?: string,
     ): CancelablePromise<any> {
         return this.httpRequest.request({
@@ -426,7 +427,7 @@ export class OrdersV2Service {
      * @param orderId Order ID (integer) or Order External ID (string prepended with "@" symbol)
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns void
      * @throws ApiError
@@ -460,7 +461,7 @@ export class OrdersV2Service {
      * @param orderId Order ID (integer) or Order External ID (string prepended with "@" symbol)
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @param limit The number of results to return per page.
      * @param offset The number of results to not include in the response starting from the beginning of the list.
@@ -500,7 +501,7 @@ export class OrdersV2Service {
      * @param orderId Order ID (integer) or Order External ID (string prepended with "@" symbol)
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
@@ -531,7 +532,7 @@ export class OrdersV2Service {
      * @param id Order estimation task ID.
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
@@ -560,7 +561,7 @@ export class OrdersV2Service {
      * Use this endpoint to estimate orders with items.
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @param requestBody POST request body
      * @returns any OK

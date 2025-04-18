@@ -11,7 +11,7 @@ export class ApprovalSheetsV2Service {
      * Retrieve a list of approval sheets confirming suggested changes to files of on hold orders.
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @param orderId Order ID.
      * @returns any OK

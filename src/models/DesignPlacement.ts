@@ -17,14 +17,6 @@ export type DesignPlacement = {
      */
     technique: string;
     /**
-     * Print area width for that placement
-     */
-    print_area_width?: number;
-    /**
-     * Print area height for that placement
-     */
-    print_area_height?: number;
-    /**
      * Available layers for that product
      */
     layers: Array<FileLayer>;
