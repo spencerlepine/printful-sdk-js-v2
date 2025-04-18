@@ -1,6 +1,6 @@
 {
   "name": "printful-sdk-js-v2",
-  "version": "2.1.0-beta",
+  "version": "2.1.1-beta",
   "description": "Printful SDK for Node.js / TypeScript. A wrapper for the Printful REST API (v2)",
   "author": "Spencer Lepine <spencer.sayhello@gmail.com>",
   "license": "MIT",
@@ -49,10 +49,12 @@
   "scripts": {
     "test": "jest",
     "bundle": "rollup -c",
+    "apply-overrides": "git apply overrides.patch && git add src",
     "generate-sdk": "openapi --input ./openapi.json --output ./src --name PrintfulClient",
     "generate-docs": "typedoc src/index.ts",
-    "release": "npm run generate-sdk && npm run bundle && npm run generate-docs",
-    "audit:fix": "npm_config_yes=true npx yarn-audit-fix"
+    "release": "npm run generate-sdk && npm run apply-overrides && npm run bundle && npm run generate-docs",
+    "audit:fix": "npm_config_yes=true npx yarn-audit-fix",
+    "pre-commit": "lint-staged && npm run release"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",
@@ -85,7 +87,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run release"
+      "pre-commit": "npm run pre-commit"
     }
   },
   "lint-staged": {

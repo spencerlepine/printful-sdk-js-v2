@@ -12,7 +12,7 @@
 - [ ] My code follows the code style of this project.
 - [ ] I have tested this code.
 - [ ] I have performed a self-review of my own code.
-- [ ] I have made corresponding changes to the documentation if needed.
+- [ ] (optional) I have made corresponding changes to the documentation
 
 ## Screenshots (if applicable)
 
