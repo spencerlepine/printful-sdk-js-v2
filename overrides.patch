@@ -1,0 +1,13 @@
+diff --git a/src/index.ts b/src/index.ts
+index 826809d..fd8bf7a 100644
+--- a/src/index.ts
++++ b/src/index.ts
+@@ -108,7 +108,7 @@ export type { PackingSlipReadonly } from './models/PackingSlipReadonly';
+ export type { Paging } from './models/Paging';
+ export type { ParameterSource } from './models/ParameterSource';
+ export type { PathStoreId } from './models/PathStoreId';
+-export { Placement } from './models/Placement';
++// export { Placement } from './models/Placement';
+ export type { Placement } from './models/Placement';
+ export { Placement_2 } from './models/Placement_2';
+ export type { PlacementList } from './models/PlacementList';

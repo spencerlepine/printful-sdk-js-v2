@@ -14,7 +14,7 @@ export class ShippingRatesV2Service {
      * Returns available shipping options and rates for the given list of products.
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @param xPfLanguage Use this to specify which locale you would like to use in the responses, for some endpoints this can affect translations.
      *

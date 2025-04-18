@@ -4,7 +4,7 @@
 /* eslint-disable */
 /**
  * Use this to specify which store you want to use.
- * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+ * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
  *
  */
 export type PathStoreId = number;

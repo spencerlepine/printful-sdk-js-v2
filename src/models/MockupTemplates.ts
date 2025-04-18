@@ -7,15 +7,15 @@
  */
 export type MockupTemplates = {
     /**
-     * A list of variant IDs for which the positions apply
+     * A list of variant IDs for which the positions apply.
      */
     catalog_variant_ids: Array<number>;
     /**
-     * Catalog product placement that is used for the design
+     * Catalog product placement that is used for the design.
      */
     placement: string;
     /**
-     * Catalog product technique that is used for the design
+     * Catalog product technique that is used for the design.
      */
     technique: string;
     /**
@@ -62,6 +62,14 @@ export type MockupTemplates = {
      * Wall art product orientation. Possible values: horizontal, vertical, any
      */
     orientation: MockupTemplates.orientation;
+    /**
+     * Type of inside label used, "native" refers to labels that have preset information, "custom" are fully customizable and require the user to supply country of manufacturing origin, original garment size, and material information. "advanced" is for products like for products like AOP Tote. "color_group" for the new inside labels where there are multiple designs for the overlay.
+     */
+    template_type?: MockupTemplates.template_type | null;
+    /**
+     * Mockup template role.
+     */
+    role?: MockupTemplates.role;
 };
 export namespace MockupTemplates {
     /**
@@ -78,6 +86,25 @@ export namespace MockupTemplates {
         HORIZONTAL = 'horizontal',
         VERTICAL = 'vertical',
         ANY = 'any',
+    }
+    /**
+     * Type of inside label used, "native" refers to labels that have preset information, "custom" are fully customizable and require the user to supply country of manufacturing origin, original garment size, and material information. "advanced" is for products like for products like AOP Tote. "color_group" for the new inside labels where there are multiple designs for the overlay.
+     */
+    export enum template_type {
+        CUSTOM = 'custom',
+        NATIVE = 'native',
+        COLOR_GROUP = 'color_group',
+        ADVANCED = 'advanced',
+    }
+    /**
+     * Mockup template role.
+     */
+    export enum role {
+        PRIMARY = 'primary',
+        TEMPLATE = 'template',
+        EXTRA = 'extra',
+        UNKNOWN = 'unknown',
+        ADVANCED_TEMPLATE = 'advanced_template',
     }
 }
 

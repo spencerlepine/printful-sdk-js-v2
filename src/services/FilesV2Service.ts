@@ -13,12 +13,12 @@ export class FilesV2Service {
      *
      * If a file with identical URL already exists, then the original file is returned. If a file does not exist, a new file is created.
      *
-     * [See examples](#tag/Examples/Files-API-examples/Add-a-new-file)
+     * [See examples](#tag/Examples/File-Library-API-examples/Add-a-new-file)
      *
      * @param requestBody POST request body
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError

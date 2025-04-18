@@ -8,7 +8,7 @@ export type MockupTaskCreation = {
     /**
      * Generated file format. PNG will have a transparent background, JPG will have a smaller file size.
      */
-    format: MockupTaskCreation.format;
+    format?: MockupTaskCreation.format;
     products: Array<(CatalogMockupProduct | TemplateMockupProduct)>;
 };
 export namespace MockupTaskCreation {

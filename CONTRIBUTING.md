@@ -77,8 +77,12 @@ $ yarn run generate-sdk
 $ yarn run release
 ```
 
-If any TypeScript errors occur, make manual edits:
+You may run into type errors after generating `src` code with `openapi-typescript-codegen`. To resolve this, we created `overrides.patch` wich will force apply changes during pre-commit and build.
 
+1. Make manual changes to fix Typescript errors
+2. Create a patch diff `git diff src/index.ts >> overrides.patch && git commit overrides.patch`
+
+Example:
 ```diff
 // index.ts
 export { Placement } from './models/Placement';

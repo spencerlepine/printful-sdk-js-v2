@@ -14,7 +14,7 @@ export class WebhookV2Service {
      * Returns a configured webhook URL and a list of webhook event types enabled for the store
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @param showExpired If this parameter is passed with value `true`, expired settings will be returned instead of a 404 warning.
      * @returns any OK
@@ -53,7 +53,7 @@ export class WebhookV2Service {
      * @param requestBody POST request body
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
@@ -81,7 +81,7 @@ export class WebhookV2Service {
      * Removes the webhook URL and all event types from the store.
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns void
      * @throws ApiError
@@ -107,7 +107,7 @@ export class WebhookV2Service {
      * @param eventType Event type
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @param showExpired If this parameter is passed with value `true`, expired settings will be returned instead of a 404 warning.
      * @returns any OK
@@ -147,7 +147,7 @@ export class WebhookV2Service {
      * @param requestBody POST request body
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns any OK
      * @throws ApiError
@@ -181,7 +181,7 @@ export class WebhookV2Service {
      * @param eventType Event type
      * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
      *
-     * The store IDs can be retrieved with the [Get basic information about stores](/docs/#operation/getStores) endpoint.
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @returns void
      * @throws ApiError
