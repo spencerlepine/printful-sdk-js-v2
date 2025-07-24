@@ -33,6 +33,10 @@ export type Variant = {
      */
     color_code2: string | null;
     /**
+     * A list of placement configuration objects, each specifying the layout details for a particular placement.
+     */
+    placement_dimensions?: any;
+    /**
      * URL of a preview image for this variant
      */
     image: string;

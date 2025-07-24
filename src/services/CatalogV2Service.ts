@@ -303,6 +303,7 @@ export class CatalogV2Service {
      * @param id Product ID.
      * @param sellingRegionName Specifies the region production currency that the product prices will be calculated in
      * @param currency The currency (3-letter code) used to determine currency in which the prices will be displayed. The store currency will be used by default. The format is compliant with ISO 4217 standard.
+     * @param productionCurrency The production currency (3-letter code) used to determine currency in which the prices will be calculated. The active user production currency will be used by default. The format is compliant with ISO 4217 standard.
      * @param xPfLanguage Use this to specify which locale you would like to use in the responses, for some endpoints this can affect translations.
      *
      * @returns any OK
@@ -312,6 +313,7 @@ export class CatalogV2Service {
         id: number,
         sellingRegionName?: string,
         currency?: string,
+        productionCurrency?: string,
         xPfLanguage?: string,
     ): CancelablePromise<any> {
         return this.httpRequest.request({
@@ -326,6 +328,7 @@ export class CatalogV2Service {
             query: {
                 'selling_region_name': sellingRegionName,
                 'currency': currency,
+                'production_currency': productionCurrency,
             },
             errors: {
                 404: `Not found`,
@@ -338,6 +341,7 @@ export class CatalogV2Service {
      * @param id Variant ID
      * @param sellingRegionName Specifies the region production currency that the product prices will be calculated in
      * @param currency The currency (3-letter code) used to determine currency in which the prices will be displayed. The store currency will be used by default. The format is compliant with ISO 4217 standard.
+     * @param productionCurrency The production currency (3-letter code) used to determine currency in which the prices will be calculated. The active user production currency will be used by default. The format is compliant with ISO 4217 standard.
      * @param xPfLanguage Use this to specify which locale you would like to use in the responses, for some endpoints this can affect translations.
      *
      * @returns any OK
@@ -347,6 +351,7 @@ export class CatalogV2Service {
         id: number,
         sellingRegionName?: string,
         currency?: string,
+        productionCurrency?: string,
         xPfLanguage?: string,
     ): CancelablePromise<any> {
         return this.httpRequest.request({
@@ -361,6 +366,7 @@ export class CatalogV2Service {
             query: {
                 'selling_region_name': sellingRegionName,
                 'currency': currency,
+                'production_currency': productionCurrency,
             },
             errors: {
                 404: `Not found`,
@@ -486,6 +492,7 @@ export class CatalogV2Service {
      *
      * @param id Product ID.
      * @param placements One or more placement idenitifiers used to filter in mockup styles that match a given placement. The complete list of placements can be found [here](https://developers.printful.com/docs/#tag/Common/Placements).
+     * @param defaultMockupStyles
      * @param sellingRegionName Only returns the products that can be sold in the specified region. If is set to 'all' returns each region availability for specified product.
      * @param offset Result set offset
      * @param limit Number of items per page (max 100)
@@ -497,6 +504,7 @@ export class CatalogV2Service {
     public retrieveMockupStylesByProductId(
         id: number,
         placements?: Array<string>,
+        defaultMockupStyles: boolean = false,
         sellingRegionName: 'worldwide' | 'north_america' | 'canada' | 'europe' | 'spain' | 'latvia' | 'uk' | 'france' | 'germany' | 'australia' | 'japan' | 'new_zealand' | 'italy' | 'brazil' | 'southeast_asia' | 'republic_of_korea' | 'all' = 'worldwide',
         offset?: number,
         limit?: number,
@@ -513,6 +521,7 @@ export class CatalogV2Service {
             },
             query: {
                 'placements': placements,
+                'default_mockup_styles': defaultMockupStyles,
                 'selling_region_name': sellingRegionName,
                 'offset': offset,
                 'limit': limit,

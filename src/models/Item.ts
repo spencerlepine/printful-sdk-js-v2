@@ -28,6 +28,10 @@ export type Item = {
      */
     name?: string;
     placements?: PlacementsList;
+    /**
+     * Orientation of the design. Applies only to the products that allow multiple orientations such as framed posters.
+     */
+    orientation?: Item.orientation | null;
     product_options?: ProductOptions;
     /**
      * HATEOAS links
@@ -36,4 +40,14 @@ export type Item = {
         self?: HateoasLink;
     };
 };
+export namespace Item {
+    /**
+     * Orientation of the design. Applies only to the products that allow multiple orientations such as framed posters.
+     */
+    export enum orientation {
+        HORIZONTAL = 'horizontal',
+        VERTICAL = 'vertical',
+        ANY = 'any',
+    }
+}
 

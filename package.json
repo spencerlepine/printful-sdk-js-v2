@@ -1,6 +1,6 @@
 {
   "name": "printful-sdk-js-v2",
-  "version": "2.1.1-beta",
+  "version": "2.1.2-beta",
   "description": "Printful SDK for Node.js / TypeScript. A wrapper for the Printful REST API (v2)",
   "author": "Spencer Lepine <spencer.sayhello@gmail.com>",
   "license": "MIT",
