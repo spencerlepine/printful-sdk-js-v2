@@ -4063,7 +4063,7 @@
             "example": null
           },
           "background_color": {
-            "type": "integer",
+            "type": "string",
             "description": "HEX color code that should be used as a background color of `image_url`.",
             "nullable": true,
             "example": null
