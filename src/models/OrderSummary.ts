@@ -32,6 +32,7 @@ export type OrderSummary = {
      * Order status:<br />
      * **draft** - order is not submitted for fulfillment<br />
      * **failed** - order was submitted for fulfillment but was not accepted because of an error (problem with address, printfiles, charging, etc.)<br />
+     * **inreview** - order is being reviewed but is still cancellable at this point<br />
      * **pending** - order has been submitted for fulfillment<br />
      * **canceled** - order is canceled<br />
      * **onhold** - order has encountered a problem during the fulfillment that needs to be resolved together with the Printful customer service<br />

@@ -3,7 +3,17 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Information about the address
+ * Information about the address.
+ *
+ * **Required fields:**
+ * - `country_code`: Always required
+ *
+ * **Conditionally required fields:**
+ * - `state_code`: Required for United States (US), Australia (AU), and Canada (CA)
+ *
+ * **Optional fields:**
+ * - All other fields are optional but providing more information may produce more precise results and more shipping options.
+ *
  */
 export type ShippingRatesAddress = {
     /**
@@ -19,7 +29,9 @@ export type ShippingRatesAddress = {
      */
     city?: string;
     /**
-     * State code this property is required for certain countries like the United States, Canada and Australia
+     * State/province code. Required for United States (US), Australia (AU), and Canada (CA).
+     * For other countries, this field is optional.
+     *
      */
     state_code?: string | null;
     /**

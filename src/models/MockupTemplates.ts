@@ -29,7 +29,7 @@ export type MockupTemplates = {
     /**
      * HEX color code that should be used as a background color of `image_url`.
      */
-    background_color: string | null;
+    background_color: number | null;
     /**
      * Width of the whole template in pixels.
      */

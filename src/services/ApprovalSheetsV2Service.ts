@@ -14,12 +14,14 @@ export class ApprovalSheetsV2Service {
      * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
      *
      * @param orderId Order ID.
+     * @param groupHash Filters results by the group hash common to all approval sheets that relate to the same design.
      * @returns any OK
      * @throws ApiError
      */
     public getApprovalSheets(
         xPfStoreId?: string,
         orderId?: number,
+        groupHash?: string,
     ): CancelablePromise<any> {
         return this.httpRequest.request({
             method: 'GET',
@@ -29,6 +31,36 @@ export class ApprovalSheetsV2Service {
             },
             query: {
                 'order_id': orderId,
+                'group_hash': groupHash,
+            },
+            errors: {
+                401: `Unauthorized`,
+            },
+        });
+    }
+    /**
+     * Download approval sheet PDF
+     * This endpoint allows to programmatically download approval sheet PDF.
+     * @param xPfStoreId Use this to specify which store you want to use (required only for account level token).
+     *
+     * The store IDs can be retrieved with the [Get basic information about stores](#tag/Stores-v2/operation/getStores) endpoint.
+     *
+     * @param confirmHash The confirm hash associated with the approval sheet.
+     * @returns binary OK — PDF file download
+     * @throws ApiError
+     */
+    public downloadApprovalSheet(
+        xPfStoreId?: string,
+        confirmHash?: string,
+    ): CancelablePromise<Blob> {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/v2/approval-sheets/{confirm_hash}/download',
+            path: {
+                'confirm_hash': confirmHash,
+            },
+            headers: {
+                'X-PF-Store-Id': xPfStoreId,
             },
             errors: {
                 401: `Unauthorized`,

@@ -300,10 +300,41 @@ export class CatalogV2Service {
      * </p>
      * </div>
      *
+     * The product pricing process begins with determining the base product price, which depends on the technique used, such as DTG, Embroidery, or DTF. The first placement is typically included in the base price unless it involves special placements like large embroidery or inside labels, which are priced separately. If additional placements are added, their prices are included in the summary cost. Furthermore, additional options, such as 3D puff embroidery or unlimited thread colors, also increase the total cost. The final price is calculated by summing up the base price, additional placement costs, and any extra option costs.
+     *
+     * <pre class="mermaid">
+     * flowchart TD
+     * B{Technique Used} -->|DTG| C[Base Price: DTG]
+     * B -->|Embroidery| D[Base Price: Embroidery]
+     * B -->|DTF| E[Base Price: DTF]
+     * C --> A
+     * D --> A
+     * E --> A
+     * A[Base Product Price] --> F[First Placement Included?]
+     *
+     *
+     * F -->|Yes| G[Base Price Includes First Placement]
+     * F -->|No e.g., Large Embroidery, Inside Label| H[Special Placement Priced Separately]
+     *
+     * G --> I[Additional Placements?]
+     * I -->|Yes| J[Add Placement Price to Summary Cost]
+     * I -->|No| K[Summary Cost = Base Price]
+     *
+     * H --> J
+     * J --> L[Additional Options?]
+     * L -->|Yes, such as 3d puff or unlimited color| M[Add Option Price to Summary Cost]
+     * L -->|No| K
+     *
+     * M --> K
+     * </pre>
+     *
      * @param id Product ID.
      * @param sellingRegionName Specifies the region production currency that the product prices will be calculated in
      * @param currency The currency (3-letter code) used to determine currency in which the prices will be displayed. The store currency will be used by default. The format is compliant with ISO 4217 standard.
-     * @param productionCurrency The production currency (3-letter code) used to determine currency in which the prices will be calculated. The active user production currency will be used by default. The format is compliant with ISO 4217 standard.
+     * @param productionCurrency The production currency (3-letter code) used to determine currency in which the prices will be calculated. The format is compliant with ISO 4217 standard.
+     * If not provided, prices will be calculated for all available production currencies,
+     * and the highest price will be returned.
+     *
      * @param xPfLanguage Use this to specify which locale you would like to use in the responses, for some endpoints this can affect translations.
      *
      * @returns any OK
@@ -341,7 +372,10 @@ export class CatalogV2Service {
      * @param id Variant ID
      * @param sellingRegionName Specifies the region production currency that the product prices will be calculated in
      * @param currency The currency (3-letter code) used to determine currency in which the prices will be displayed. The store currency will be used by default. The format is compliant with ISO 4217 standard.
-     * @param productionCurrency The production currency (3-letter code) used to determine currency in which the prices will be calculated. The active user production currency will be used by default. The format is compliant with ISO 4217 standard.
+     * @param productionCurrency The production currency (3-letter code) used to determine currency in which the prices will be calculated. The format is compliant with ISO 4217 standard.
+     * If not provided, prices will be calculated for all available production currencies,
+     * and the highest price will be returned.
+     *
      * @param xPfLanguage Use this to specify which locale you would like to use in the responses, for some endpoints this can affect translations.
      *
      * @returns any OK
@@ -389,6 +423,7 @@ export class CatalogV2Service {
      * @param placement Filters result by specified placement
      * @param xPfLanguage Use this to specify which locale you would like to use in the responses, for some endpoints this can affect translations.
      *
+     * @param limit The number of results to return per page.
      * @returns any OK
      * @throws ApiError
      */
@@ -398,6 +433,7 @@ export class CatalogV2Service {
         colors?: string,
         placement?: string,
         xPfLanguage?: string,
+        limit: number = 20,
     ): CancelablePromise<any> {
         return this.httpRequest.request({
             method: 'GET',
@@ -412,6 +448,7 @@ export class CatalogV2Service {
                 'mockup_style_ids': mockupStyleIds,
                 'colors': colors,
                 'placement': placement,
+                'limit': limit,
             },
             errors: {
                 401: `Unauthorized`,

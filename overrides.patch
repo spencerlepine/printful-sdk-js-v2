@@ -1,8 +1,8 @@
 diff --git a/src/index.ts b/src/index.ts
-index 826809d..fd8bf7a 100644
+index d0c10ba..6bb018a 100644
 --- a/src/index.ts
 +++ b/src/index.ts
-@@ -108,7 +108,7 @@ export type { PackingSlipReadonly } from './models/PackingSlipReadonly';
+@@ -114,7 +114,7 @@ export type { PackingSlipReadonly } from './models/PackingSlipReadonly';
  export type { Paging } from './models/Paging';
  export type { ParameterSource } from './models/ParameterSource';
  export type { PathStoreId } from './models/PathStoreId';

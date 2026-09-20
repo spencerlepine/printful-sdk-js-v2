@@ -19,5 +19,9 @@ export type VariantImage = {
      * Background image of an image specified in the `image_url`. Null if no background image
      */
     background_image: string | null;
+    /**
+     * ID of the mockup style
+     */
+    mockup_style_id: number;
 };
 

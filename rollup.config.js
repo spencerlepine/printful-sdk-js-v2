@@ -27,6 +27,8 @@ export default [
       commonjs(), // Converts CommonJS modules to ES6
       json(),
       typescript({
+        // rpt2's default `*.ts+(|x)` globs stop matching under picomatch >=2.3.2 (extglob security fix)
+        include: ['*.ts', '**/*.ts', '*.tsx', '**/*.tsx'],
         rollupCommonJSResolveHack: false,
         clean: true,
       }),

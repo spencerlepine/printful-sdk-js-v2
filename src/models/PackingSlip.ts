@@ -19,7 +19,7 @@ export type PackingSlip = {
      */
     message?: string;
     /**
-     * URL address to a sticker we will put on a package
+     * URL address to a sticker we will put on a package. The provided image is converted to grayscale/1-bit monochrome image.
      */
     logo_url?: string;
     /**

@@ -29,6 +29,10 @@ export type Shipment = {
      * If there is an issue with items in a shipment, a reshipment might be necessary. This property will be false if it is the original shipment and true if it is a reshipment
      */
     is_reshipment?: boolean;
+    /**
+     * The tracking code associated with the shipment.
+     */
+    tracking_number?: string | null;
     tracking_url?: string;
     tracking_events?: Array<TrackingEvent>;
     estimated_delivery?: {
